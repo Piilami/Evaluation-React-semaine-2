@@ -13,3 +13,10 @@ export const deleteTask = (task) => {
     payload: task.id,
   };
 };
+
+export const resetMessage = (message) => {
+  return {
+    type: taskActions.RESET_MESSAGE,
+    payload: message,
+  };
+};

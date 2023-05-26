@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function TaskList() {
   const tasks = useSelector(TaskSelector).tasks;
+  console.log(tasks);
   const dispatch = useDispatch();
   const onDelete = (task) => dispatch(deleteTask(task));
 

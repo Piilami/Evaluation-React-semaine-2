@@ -6,14 +6,14 @@ import AddTask from "../component/AddTask/index"
 
 
 function TaskFormPage() {
-  const {task, error} = useSelector(TaskSelector)
+  const {task, message} = useSelector(TaskSelector)
+
   const dispatch = useDispatch();
   const onAddTask = (name) => dispatch(addTask(name))
 
   return (
     <div>
-      {error && <span>{error}</span>}
-      <AddTask onSubmit={onAddTask}/>
+      <AddTask onSubmit={onAddTask} message={message}/>
     </div>
   )
 }

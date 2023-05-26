@@ -20,6 +20,7 @@ export const taskActions = {
   TASK_ADD: "TASK_ADD",
   TASK_REMOVE: "TASK_REMOVE",
   TASK_UPDATE: "TASK_UPDATE",
+  RESET_MESSAGE: "RESET_MESSAGE",
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -32,6 +33,13 @@ const taskReducer = (state = initialState, action) => {
         };
       }
 
+      if (state.tasks.some((t) => t.task === action.payload)) {
+        return {
+          ...state,
+          message: "La tache existe déjà.",
+        };
+      }
+
       return {
         ...state,
         tasks: [
@@ -41,6 +49,18 @@ const taskReducer = (state = initialState, action) => {
       };
     case taskActions.TASK_REMOVE:
       return state.filter((task) => task.id !== action.payload);
+
+    case taskActions.RESET_MESSAGE:
+      return {
+        ...state,
+        message: action.payload,
+      };
+
+    case taskActions.RESET_MESSAGE:
+      return {
+        ...state,
+        message: action.payload,
+      };
 
     default:
       return state;
