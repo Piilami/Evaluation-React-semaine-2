@@ -1,5 +1,5 @@
 import { TaskSelector } from "../store/selectors/taskSelector";
-import { deleteTask } from "../store/actions/taskActions";
+import { deleteTask, updateTask } from "../store/actions/taskActions";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
