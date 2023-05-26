@@ -5,8 +5,8 @@ import {useDispatch, useSelector} from "react-redux";
 
 function TaskList() {
   
-  const tasks = useSelector(TaskSelector);
-
+  const tasks = useSelector(TaskSelector).tasks;
+  console.log(tasks)
 
   return (
     <ul>

@@ -1,17 +1,20 @@
-let nextId = 2
+let nextId = 3
 
-const initialState = [
-  {
-    id: 1,
-    task: "tache 1",
-    done: true,
-  },
-  {
-    id: 2,
-    task: "tache 2",
-    done: false,
-  },
-];
+const initialState = {
+  tasks: [
+    {
+      id: 1,
+      task: "tache 1",
+      done: true,
+    },
+    {
+      id: 2,
+      task: "tache 2",
+      done: false,
+    },
+  ],
+  message: ''
+};
 
 export const taskActions = {
   TASK_ADD: "TASK_ADD",
@@ -25,11 +28,18 @@ const taskReducer = (state = initialState, action) => {
       if (action.payload.trim() === '') {
         return {
           ...state,
-          message: 'Merci de saisir une tache.'
+          error: 'Merci de saisir une tache.'
         }
       }
 
-      return [...state, { id: nextId++, task: action.payload, done: false }]
+      return {
+        ...state, 
+        tasks: [
+          ...state.tasks,
+          { id: nextId++, task: action.payload, done: false }
+        ]
+          
+      }
     case taskActions.TASK_REMOVE:
       return state.filter((task) => task.id !== action.payload)
 
