@@ -48,13 +48,18 @@ const taskReducer = (state = initialState, action) => {
         ],
       };
     case taskActions.TASK_REMOVE:
-      return {...state, tasks: state.tasks.filter((task) => task.id !== action.payload)};
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
+      };
 
     case taskActions.RESET_MESSAGE:
       return {
         ...state,
         message: action.payload,
       };
+
+    case taskActions.TASK_UPDATE:
 
     default:
       return state;
