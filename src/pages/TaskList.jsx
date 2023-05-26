@@ -1,10 +1,13 @@
+const task = ["aaa", "bbb", "ccc"];
 function TaskList() {
-  const task = ["aaa", "bbb", "ccc"];
+  //temporaire pour test
 
   return (
     <ul>
       {task.map((e, i) => (
-        <li key={i}>{e}</li>
+        <li key={i}>
+          {e} <button>X</button>
+        </li>
       ))}
     </ul>
   );
