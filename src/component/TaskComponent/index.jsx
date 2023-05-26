@@ -1,5 +1,5 @@
 import { deleteTask } from "../../store/actions/taskActions";
-import { TaskSelector } from "../../store/selector/taskSelector";
+
 import { useDispatch, useSelector } from "react-redux";
 
 function TaskComponent(props) {
