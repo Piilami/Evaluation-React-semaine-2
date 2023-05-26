@@ -14,6 +14,13 @@ export const deleteTask = (task) => {
   };
 };
 
+export const updateTask = (task) => {
+  return {
+    type: taskActions.TASK_UPDATE,
+    payload: task,
+  };
+};
+
 export const resetMessage = (message) => {
   return {
     type: taskActions.RESET_MESSAGE,
