@@ -19,7 +19,7 @@ function Nav() {
           </NavLink>
         </button>
         <button>
-          <NavLink to={'/addFrom'} end style={style}>
+          <NavLink to={'/addForm'} end style={style}>
             Add form
           </NavLink>
         </button>
