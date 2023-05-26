@@ -10,6 +10,16 @@ function AddTask({ onSubmit }) {
   const {tasks, message} = useSelector(TaskSelector)
   const dispatch = useDispatch()
 
+  const taskFormWrapperStyle = {
+    margin: '2rem 0'
+  }
+
+  const taskFormStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    columnGap: '2rem',
+    margin: '5rem 0'
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,9 +33,9 @@ function AddTask({ onSubmit }) {
   }
 
   return (
-    <div>
+    <div style={taskFormWrapperStyle}>
       {message && <span>{message}</span>}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={taskFormStyle}>
         <input
           type={"text"}
           placeholder={"Nom de votre tache"}

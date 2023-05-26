@@ -8,8 +8,14 @@ import TaskList from "./pages/TaskList";
 function App() {
   const dispatch = useDispatch();
 
+  const titleStyle = {
+    textAlign: "center",
+    color: "blue",
+  };
+
   return (
     <div>
+      <h1 style={titleStyle}>Application de gestionnaire de taches</h1>
       <Nav />
       <Routes>
         <Route path="/" element={<TaskList />} />

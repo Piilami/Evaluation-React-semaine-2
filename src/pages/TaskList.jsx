@@ -63,8 +63,7 @@ function TaskList() {
           <li key={t.id} style={styleLi}>
             {t.task}
             {""}
-
-            <button onClick={() => edit(t.id)}>edit</button>
+            <button onClick={() => edit(t.id)}>Editer</button>
             <button onClick={() => onDelete(t)}>X</button>
           </li>
         ))}
@@ -86,7 +85,7 @@ function TaskList() {
             onChange={handleInputChange}
           />
 
-          <button role={"submit"}>Save</button>
+          <button role={"submit"}>Enregistrer</button>
         </form>
       )}
     </>

@@ -1,12 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-const navButton = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "15px ",
-};
-
 function Nav() {
   const style = ({ isActive }) => {
     return {
@@ -14,20 +7,32 @@ function Nav() {
     };
   };
 
+  const navStyle = {
+    width: "90%",
+    margin: "1rem auto",
+    textAlign: "center",
+  };
+
+  const buttonWrapperStyle = {
+    display: "flex",
+    margin: "30px",
+    justifyContent: "space-around",
+  };
+
   return (
-    <nav>
+    <nav style={navStyle}>
       <div>
-        <h1>Nav Reduc app</h1>
+        <h2>Navigation</h2>
       </div>
-      <div style={navButton}>
-        <button style={navButton}>
+      <div style={buttonWrapperStyle}>
+        <button>
           <NavLink to={"/"} end style={style}>
             TaskList
           </NavLink>
         </button>
         <button>
           <NavLink to={"/addForm"} end style={style}>
-            Add form
+            Ajouter une tache
           </NavLink>
         </button>
       </div>
