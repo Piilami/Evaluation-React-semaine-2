@@ -8,9 +8,9 @@ const store = createStore(
   combineReducers({
       tasks: taskReducer,
   }),
-  // composeWithDevTools(
-  //     applyMiddleware(thunk, logMiddleware, coupleMiddleware)
-  // )
+  composeWithDevTools(
+      applyMiddleware(thunk)
+  )
 )
 
 export default store
