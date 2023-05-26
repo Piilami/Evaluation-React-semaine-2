@@ -1,12 +1,18 @@
-const task = ["aaa", "bbb", "ccc"];
+import { TaskSelector } from "../store/selectors/taskSelector";
+
+import {useDispatch, useSelector} from "react-redux";
+
+
 function TaskList() {
-  //temporaire pour test
+  
+  const tasks = useSelector(TaskSelector);
+
 
   return (
     <ul>
-      {task.map((e, i) => (
+      {tasks.map((t, i) => (
         <li key={i}>
-          {e} <button>X</button>
+          {t.task} <button>X</button>
         </li>
       ))}
     </ul>
