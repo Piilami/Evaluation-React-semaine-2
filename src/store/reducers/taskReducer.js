@@ -20,6 +20,7 @@ export const taskActions = {
   TASK_ADD: "TASK_ADD",
   TASK_REMOVE: "TASK_REMOVE",
   TASK_UPDATE: "TASK_UPDATE",
+  RESET_MESSAGE: "RESET_MESSAGE"
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -28,20 +29,26 @@ const taskReducer = (state = initialState, action) => {
       if (action.payload.trim() === '') {
         return {
           ...state,
-          error: 'Merci de saisir une tache.'
+          message: 'Merci de saisir une tache.'
         }
       }
 
       return {
-        ...state, 
+        ...state,
         tasks: [
           ...state.tasks,
           { id: nextId++, task: action.payload, done: false }
         ]
-          
+
       }
     case taskActions.TASK_REMOVE:
       return state.filter((task) => task.id !== action.payload)
+
+    case taskActions.RESET_MESSAGE:
+      return {
+        ...state,
+        message: action.payload
+      };
 
     default:
       return state;
