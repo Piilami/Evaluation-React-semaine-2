@@ -33,6 +33,13 @@ const taskReducer = (state = initialState, action) => {
         }
       }
 
+      if(state.tasks.some((t) => t.task === action.payload)) {
+        return {
+          ...state,
+          message: 'La tache existe déjà.'
+        };
+      }
+
       return {
         ...state,
         tasks: [
