@@ -7,20 +7,33 @@ function Nav() {
     }
   }
 
+  const navStyle = {
+    width: '90%',
+    margin: '1rem auto',
+    textAlign: 'center'
+  }
+
+  const buttonWrapperStyle = {
+    display: 'flex',
+    justifyContent: 'space-around'
+
+  }
+
   return (
-    <nav>
+    <nav style={navStyle}>
       <div>
-        <h1>Nav Reduc app</h1>
+        <h2>Navigation</h2>
       </div>
-      <div>
+
+      <div style={buttonWrapperStyle}>
         <button>
           <NavLink to={'/'} end style={style}>
-            TaskList
+            Liste des taches
           </NavLink>
         </button>
         <button>
           <NavLink to={'/addForm'} end style={style}>
-            Add form
+            Ajouter une tache
           </NavLink>
         </button>
       </div>
