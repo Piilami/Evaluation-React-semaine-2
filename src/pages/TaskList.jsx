@@ -4,7 +4,7 @@ import { deleteTask } from "../store/actions/taskActions";
 import { useDispatch, useSelector } from "react-redux";
 
 function TaskList() {
-  const tasks = useSelector(TaskSelector);
+  const tasks = useSelector(TaskSelector).tasks;
   const dispatch = useDispatch();
   const onDelete = (task) => dispatch(deleteTask(task));
 
@@ -12,9 +12,10 @@ function TaskList() {
     <ul>
       {tasks.map((t) => (
         <li key={t.id}>
+          {console.log(tasks)}
           {t.task}
           {""}
-          <button onClick={() => onDelete(t)}>X</button>
+          <button onClick={() => onDelete(t.id)}>X</button>
         </li>
       ))}
     </ul>
