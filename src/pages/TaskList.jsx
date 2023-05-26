@@ -22,10 +22,15 @@ function TaskList() {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+
+    const inputValue = type === "checkbox" ? checked : value;
+
+
+
     setEditedTask((prevTask) => ({
       ...prevTask,
-      [name]: value,
+      [name]: inputValue,
     }));
   };
 
@@ -54,7 +59,7 @@ function TaskList() {
             value={editedTask.task}
             onChange={handleInputChange} />
           <label>Tache terminée: </label>
-          <input type="radio" name="done"
+          <input type="checkbox" name="done"
             checked={editedTask.done}
             onChange={handleInputChange} />
 
