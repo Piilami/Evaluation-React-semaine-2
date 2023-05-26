@@ -27,10 +27,3 @@ export const resetMessage = (message) => {
     payload: message,
   };
 };
-
-export const updateTask = () => {
-  return {
-    type: taskActions.TASK_UPDATE,
-    payload: task,
-  };
-};
