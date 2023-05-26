@@ -1,3 +1,5 @@
+import TaskComponent from "../component/TaskComponent";
+
 const task = ["aaa", "bbb", "ccc"];
 function TaskList() {
   //temporaire pour test
@@ -5,9 +7,7 @@ function TaskList() {
   return (
     <ul>
       {task.map((e, i) => (
-        <li key={i}>
-          {e} <button>X</button>
-        </li>
+        <TaskComponent key={i} props={e} />
       ))}
     </ul>
   );
