@@ -14,11 +14,25 @@ function TaskList() {
     done: false,
   });
 
-  
+
   const edit = (taskId) => {
     setIsClicked(!isClicked);
     const task = tasks.find((t) => t.id === taskId)
     setEditedTask(task);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedTask((prevTask) => ({
+      ...prevTask,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateTask(editedTask));
+    setIsClicked(false);
   };
 
   return (
@@ -34,13 +48,17 @@ function TaskList() {
         ))}
       </ul>
       {isClicked && (
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Nom de la tache: </label>
           <input type="text" name="task"
-            checked={editedTask.task}/>
+            value={editedTask.task}
+            onChange={handleInputChange} />
           <label>Tache terminée: </label>
           <input type="radio" name="done"
-            checked={editedTask.done}/>
+            checked={editedTask.done}
+            onChange={handleInputChange} />
+
+          <button role={"submit"}>Save</button>
         </form>
       )}
     </>
